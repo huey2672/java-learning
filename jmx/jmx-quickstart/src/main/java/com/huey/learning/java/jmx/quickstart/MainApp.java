@@ -27,6 +27,9 @@ public class MainApp {
         try (Scanner scanner = new Scanner(System.in)) {
             while (scanner.hasNextLine()) {
                 String key = scanner.nextLine();
+                if (key == null || key.isEmpty()) {
+                    break;
+                }
                 String value = System.getProperty(key);
                 System.out.println(key + ": " + value);
             }
