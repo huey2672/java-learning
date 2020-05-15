@@ -1,4 +1,4 @@
-package com.huey.learninng.java.collection.list;
+package com.huey.learning.java.collection.list;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
