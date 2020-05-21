@@ -1,21 +1,25 @@
-package com.huey.learning.java.common.clone.deepcopy.copyconstructor;
+package com.huey.learning.java.common.clone.deepcopy.serialization;
 
+import com.esotericsoftware.kryo.Kryo;
 import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * a test class of copy constructor
+ * a test class of kryo copy
  *
  * @author huey
  */
-public class CopyConstructorTest {
+public class KryoCopyTest {
 
     @Test
-    public void testCopyConstructor() {
+    public void testKryoCopy() {
+
+        Kryo kryo = new Kryo();
+        kryo.setRegistrationRequired(false);
 
         Book book = new Book("Head First Java", "1 ed.", new Person("Eric", "Freeman"));
 
-        Book bookCopy = new Book(book);
+        Book bookCopy = kryo.copy(book);
         bookCopy.setEdition("2 ed.");
         bookCopy.getAuthor().setFirstName("Elisabeth");
 

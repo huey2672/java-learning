@@ -6,7 +6,7 @@ import org.junit.Test;
 import com.google.gson.Gson;
 
 /**
- * an test class of serialization(Gson) copy
+ * a test class of serialization(Gson) copy
  *
  * @author huey
  */

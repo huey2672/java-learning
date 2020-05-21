@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * an test class of serialization copy
+ * a test class of serialization copy
  *
  * @author huey
  */
