@@ -11,6 +11,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "Book")
 @XmlAccessorType(XmlAccessType.FIELD)
 @lombok.Data
+@lombok.NoArgsConstructor
+@lombok.AllArgsConstructor
 public class Book {
 
     @XmlElement(name = "ISBN")

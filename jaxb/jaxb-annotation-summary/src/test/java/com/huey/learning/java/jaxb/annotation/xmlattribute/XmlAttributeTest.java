@@ -12,10 +12,7 @@ public class XmlAttributeTest {
     @Test
     public void testXmlAttribute() {
 
-        Book book = new Book();
-        book.setIsbn("9787508344980");
-        book.setTitle("Head First Java");
-        book.setEdition("2nd");
+        Book book = new Book("9787508344980", "Head First Java", "2nd");
 
         JAXB.marshal(book, System.out);
 

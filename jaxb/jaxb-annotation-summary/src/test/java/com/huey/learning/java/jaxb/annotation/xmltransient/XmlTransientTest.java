@@ -12,11 +12,7 @@ public class XmlTransientTest {
     @Test
     public void testXmlTransient() {
 
-        Book book = new Book();
-        book.setIsbn("9787508344980");
-        book.setTitle("Head First Java");
-        book.setEdition("2nd");
-        book.setBrief("Balabala...");
+        Book book = new Book("9787508344980", "Head First Java", "2nd", "Balabala...");
 
         JAXB.marshal(book, System.out);
 

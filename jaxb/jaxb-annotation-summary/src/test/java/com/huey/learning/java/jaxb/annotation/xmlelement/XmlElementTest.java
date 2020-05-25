@@ -12,9 +12,7 @@ public class XmlElementTest {
     @Test
     public void testXmlElement() {
 
-        Book book = new Book();
-        book.setIsbn("9787508344980");
-        book.setTitle("Head First Java");
+        Book book = new Book("9787508344980", "Head First Java");
 
         JAXB.marshal(book, System.out);
 
