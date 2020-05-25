@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Book>
+    <ISBN>9787508344980</ISBN>
+    <Title>Head First Java</Title>
+    <AuthorList>
+        <Author>
+            <FirstName>Kathy</FirstName>
+            <LastName>Sierra</LastName>
+        </Author>
+        <Author>
+            <FirstName>Bert</FirstName>
+            <LastName>Bates</LastName>
+        </Author>
+    </AuthorList>
+</Book>
