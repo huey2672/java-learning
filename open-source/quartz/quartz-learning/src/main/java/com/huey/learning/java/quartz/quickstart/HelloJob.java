@@ -1,14 +1,12 @@
 package com.huey.learning.java.quartz.quickstart;
 
-import java.util.Date;
-
 import org.apache.commons.lang3.time.DateFormatUtils;
-import org.quartz.DisallowConcurrentExecution;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
-@DisallowConcurrentExecution
+import java.util.Date;
+
 public class HelloJob implements Job {
 
     @Override
