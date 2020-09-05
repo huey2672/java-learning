@@ -1,6 +1,8 @@
 package com.huey.learning.java.jvm.error.oom;
 
 import com.huey.learning.java.jvm.reference.type.TenMbObject;
+import javassist.CannotCompileException;
+import javassist.ClassPool;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -50,8 +52,27 @@ public class OutOfMemoryErrorTest {
     }
 
     /**
+     * test "java.lang.OutOfMemoryError: Metaspace" <br/>
+     * JDK version: 1.8 <br/>
+     * VM: HotSpot <br/>
+     * VM options: -XX:MaxMetaspaceSize=64M
+     *
+     * @throws CannotCompileException
+     */
+    @Test
+    public void testMetaspace() throws CannotCompileException {
+
+        ClassPool classPool = ClassPool.getDefault();
+        for (int i = 0; ; i++) {
+            Class clazz = classPool.makeClass("com.huey.learning.java.jvm.error.oom.Test" + i).toClass();
+        }
+
+    }
+
+    /**
      * test "java.lang.OutOfMemoryError: Requested array size exceeds VM limit" <br/>
-     * JDK version: 1.8
+     * JDK version: 1.8 <br/>
+     * VM: HotSpot
      */
     @Test
     public void testRequestedArraySizeExceedsVmLimit() {
@@ -60,7 +81,8 @@ public class OutOfMemoryErrorTest {
 
     /**
      * test "java.lang.OutOfMemoryError: unable to create new native thread" <br/>
-     * JDK version: 1.8
+     * JDK version: 1.8 <br/>
+     * VM: HotSpot
      */
     @Test
     public void testUnableToCreateNewNativeThread() {
