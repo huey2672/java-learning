@@ -3,7 +3,7 @@ package com.huey.learning.java.exception.noclassdeffounderror;
 import org.junit.Test;
 
 /**
- * @author zhengzs
+ * @author huey
  */
 public class NoClassDefFoundErrorTest {
 
