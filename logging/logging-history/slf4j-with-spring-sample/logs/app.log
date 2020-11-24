@@ -1,0 +1,3 @@
+23:09:19.744 [main] INFO  o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22f71333: startup date [Tue Nov 24 23:09:19 CST 2020]; root of context hierarchy
+23:09:19.807 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring.xml]
+23:09:19.979 [main] INFO  c.h.l.j.l.h.slf4jwithspring.MainApp - Hello, App!
