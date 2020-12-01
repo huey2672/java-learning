@@ -41,8 +41,10 @@ public class ShiroTest {
     @Test
     public void testLoginSuccessfully() {
 
+        // obtain the auth token
         AuthenticationToken token = new UsernamePasswordToken("Huey", "123456");
 
+        // login with correct username and password
         currentUser.login(token);
 
         Assert.assertTrue(currentUser.isAuthenticated());
@@ -54,6 +56,7 @@ public class ShiroTest {
 
         AuthenticationToken token = new UsernamePasswordToken("NoName", "123456");
 
+        // login with unknown username
         currentUser.login(token);
 
     }
@@ -61,6 +64,7 @@ public class ShiroTest {
     @Test(expected = IncorrectCredentialsException.class)
     public void testIncorrectCredentialsException() {
 
+        // login with incorrect password
         AuthenticationToken token = new UsernamePasswordToken("Huey", "654321");
 
         currentUser.login(token);
@@ -74,6 +78,7 @@ public class ShiroTest {
 
         currentUser.login(token);
 
+        // test user has specified role
         Assert.assertTrue(currentUser.hasRole("admin"));
 
     }
@@ -85,6 +90,7 @@ public class ShiroTest {
 
         currentUser.login(token);
 
+        // test user has specified roles
         Assert.assertArrayEquals(new boolean[]{true, false},
                 currentUser.hasRoles(Arrays.asList("admin", "guest")));
 
@@ -97,10 +103,12 @@ public class ShiroTest {
 
         currentUser.login(token);
 
+        // test user is authenticated
         Assert.assertTrue(currentUser.isAuthenticated());
 
         currentUser.logout();
 
+        // test user is authenticated again after logout
         Assert.assertFalse(currentUser.isAuthenticated());
 
     }
