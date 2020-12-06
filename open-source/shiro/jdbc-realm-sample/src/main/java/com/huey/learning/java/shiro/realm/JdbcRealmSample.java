@@ -22,13 +22,14 @@ public class JdbcRealmSample {
 
     public static void main(String[] args) throws Exception {
 
+        // create a data source
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost/java_learning");
         dataSource.setUsername("root");
         dataSource.setPassword("root");
 
-        // create a jdbc-realm
+        // create a jdbc-realm with data source
         JdbcRealm realm = new JdbcRealm();
         realm.setDataSource(dataSource);
         realm.setPermissionsLookupEnabled(true);
