@@ -28,7 +28,7 @@ public class JdbcRealmSample {
         dataSource.setUsername("root");
         dataSource.setPassword("root");
 
-        // create a ini-realm
+        // create a jdbc-realm
         JdbcRealm realm = new JdbcRealm();
         realm.setDataSource(dataSource);
         realm.setPermissionsLookupEnabled(true);
