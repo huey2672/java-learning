@@ -98,12 +98,12 @@ public class CustomRealm extends AuthorizingRealm {
             }
         }
 
-        Set<String> finalSet = new HashSet<>();
+        Set<String> permissions = new HashSet<>();
         for (String role : roleNames) {
-            finalSet.addAll(rolePermissions.get(role));
+            permissions.addAll(rolePermissions.get(role));
         }
 
-        return finalSet;
+        return permissions;
 
     }
 
