@@ -1,5 +1,6 @@
 package com.huey.learning.java.cxf.quickstart;
 
+import javax.jws.WebParam;
 import javax.jws.WebService;
 
 /**
@@ -8,6 +9,6 @@ import javax.jws.WebService;
 @WebService(targetNamespace = "http://www.huey.com")
 public interface HelloService {
 
-    String sayHello(String name);
+    String sayHello(@WebParam(name = "name") String name);
 
 }

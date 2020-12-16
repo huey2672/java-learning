@@ -31,6 +31,8 @@ public class HelloServer {
             System.out.println("Ending...");
         }
 
+        System.exit(0);
+
     }
 
 }
