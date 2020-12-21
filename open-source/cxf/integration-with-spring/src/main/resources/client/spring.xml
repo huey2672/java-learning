@@ -7,7 +7,6 @@
        http://cxf.apache.org/jaxws
        http://cxf.apache.org/schemas/jaxws.xsd">
 
-
     <jaxws:client id="helloClient"
                   serviceClass="com.huey.learning.java.cxf.spring.sie.HelloService"
                   address="http://localhost:8080/ws/hello"/>
