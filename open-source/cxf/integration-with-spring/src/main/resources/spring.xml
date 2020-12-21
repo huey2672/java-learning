@@ -7,7 +7,7 @@
        http://cxf.apache.org/jaxws
        http://cxf.apache.org/schemas/jaxws.xsd">
 
-    <jaxws:endpoint id="helloService" implementor="com.huey.learning.java.cxf.spring.sie.impl.HelloServiceImpl"
+    <jaxws:endpoint id="helloService" implementor="com.huey.learning.java.cxf.spring.sei.impl.HelloServiceImpl"
                     address="/hello"/>
 
 </beans>

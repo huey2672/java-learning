@@ -1,6 +1,6 @@
 package com.huey.learning.java.cxf.spring.clientsample;
 
-import com.huey.learning.java.cxf.spring.sie.HelloService;
+import com.huey.learning.java.cxf.spring.sei.HelloService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

@@ -1,4 +1,4 @@
-package com.huey.learning.java.cxf.spring.sie;
+package com.huey.learning.java.cxf.spring.sei;
 
 import javax.jws.WebParam;
 import javax.jws.WebService;
