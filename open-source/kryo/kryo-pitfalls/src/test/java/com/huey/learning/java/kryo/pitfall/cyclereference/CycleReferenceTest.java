@@ -42,24 +42,28 @@ public class CycleReferenceTest {
     }
 
     @Test
-    public void testCycleReference() throws IOException {
-
-        byte[] bytes;
-        Object deserializeObject;
+    public void testReferenceTrue() throws IOException {
 
         try (ByteArrayOutputStream baos = new ByteArrayOutputStream();
              Output output = new Output(baos)) {
             kryo.writeClassAndObject(output, sourceObject);
             output.flush();
-            bytes = baos.toByteArray();
+            byte[] bytes = baos.toByteArray();
         }
 
-        try (InputStream abis = new ByteArrayInputStream(bytes);
-             Input input = new Input(abis)) {
-            deserializeObject = kryo.readClassAndObject(input);
-        }
+    }
 
-        Assert.assertEquals(sourceObject, deserializeObject);
+    @Test(expected = StackOverflowError.class)
+    public void testReferenceFalse() throws IOException {
+
+        kryo.setReferences(false);
+
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream();
+             Output output = new Output(baos)) {
+            kryo.writeClassAndObject(output, sourceObject);
+            output.flush();
+            byte[] bytes = baos.toByteArray();
+        }
 
     }
 
