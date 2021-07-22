@@ -1,27 +1,39 @@
 package com.huey.learning.kafka.mybugs;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import java.util.HashSet;
+import java.util.Set;
 
 /**
+ *
  * @author huey
  */
 public class HashSetDuplicateElementsSample {
 
     public static void main(String[] args) {
 
-        HashSet<Student> students = new HashSet<>();
-        Student huey = new Student("Huey", 18);
-        students.add(huey);
-        Student jack = new Student("Jack", 30);
-        students.add(jack);
-        Student tony = new Student("Tony", 25);
-        students.add(tony);
+        Set<Element> set = new HashSet<>();
+        Element one = new Element("1", "one");
+        set.add(one);
+        Element two = new Element("2", "TWO");
+        set.add(two);
+        Element three = new Element("3", "THREE");
+        set.add(three);
 
-        huey.setAge(16);
-        students.add(huey);
+        one.setValue("ONE");
+        set.add(one);
 
-        students.forEach(System.out::println);
+        set.forEach(System.out::println);
 
+    }
+
+    @Data
+    @AllArgsConstructor
+    public static class Element {
+        private String id;
+        private String value;
     }
 
 }
