@@ -14,7 +14,7 @@ public class InterruptedExceptionCase {
     public static void main(String[] args) throws Exception {
 
         // Creates the Runnable object and the Thread to run it
-        FileSearcher searcher = new FileSearcher("/Users/zhisenzheng", "pom.xml");
+        FileSearcher searcher = new FileSearcher("/Users/huey", "pom.xml");
         Thread thread = new Thread(searcher);
 
         // Starts the Thread

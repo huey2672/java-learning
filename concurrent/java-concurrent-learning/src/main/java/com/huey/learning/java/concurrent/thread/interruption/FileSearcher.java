@@ -76,7 +76,7 @@ public class FileSearcher implements Runnable {
     private void fileProcess(File file) throws InterruptedException {
 
         // checks the file name
-        if (file.getName().equals(fileName)) {
+        if (file.getName().equals(this.fileName)) {
             System.out.printf("%s : %s\n", Thread.currentThread().getName(), file.getAbsolutePath());
         }
 
