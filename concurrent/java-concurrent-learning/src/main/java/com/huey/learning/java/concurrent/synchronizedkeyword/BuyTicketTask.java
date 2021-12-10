@@ -3,7 +3,7 @@ package com.huey.learning.java.concurrent.synchronizedkeyword;
 public class BuyTicketTask implements Runnable {
 
     private TicketMachine ticketMachine;
-    private int times;
+    private final int times;
 
     public BuyTicketTask(TicketMachine ticketMachine, int times) {
         this.ticketMachine = ticketMachine;
