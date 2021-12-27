@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
  */
 public class ThreadFactoryCase {
 
-
     public static void main(String[] args) {
 
         DaemonThreadFactory daemonThreadFactory = new DaemonThreadFactory();
