@@ -12,8 +12,8 @@ public class LockUsage {
 
     void lockCase() {
         Lock l = lock;
+        l.lock();
         try {
-            l.lock();
             // access the resource protected by this lock
         }
         finally {
