@@ -6,6 +6,9 @@
 *.iml
 *.DS_Store
 
+/**/.jar
+/**/.class
+
 /**/HELP.md
 /**/.mvn/
 /**/.gitignore

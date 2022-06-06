@@ -1,4 +1,4 @@
-package com.huey.learning.java.javassist.main;
+package com.huey.learning.java.javassist.loader;
 
 import com.huey.learning.java.javassist.Hello;
 import javassist.ClassPool;
