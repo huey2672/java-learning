@@ -11,6 +11,7 @@ public class ThreadLocalGoodPractice {
 
         Runnable task = new Runnable() {
             private final ThreadLocal<Date> dateVar = new ThreadLocal<>();
+            @Override
             public void run() {
                 dateVar.set(new Date());
                 System.out.printf("%s, GET dateVar: %s\n", Thread.currentThread().getName(), dateVar.get());
