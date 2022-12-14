@@ -1,22 +1,16 @@
 package com.huey.learning.java.reactor;
 
 import lombok.extern.slf4j.Slf4j;
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.collection.IsIterableContainingInAnyOrder;
+import org.hamcrest.collection.IsIterableContainingInOrder;
 import org.junit.Test;
-import org.reactivestreams.Subscriber;
-import org.reactivestreams.Subscription;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import reactor.core.scheduler.Schedulers;
+import reactor.util.function.Tuples;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
-
-import java.io.IOException;
-import java.time.Duration;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 @Slf4j
 public class QuickstartSampleTest {
@@ -30,7 +24,10 @@ public class QuickstartSampleTest {
                 .log()
                 .subscribe(elements::add);
 
-        assertThat(elements, equalTo(Arrays.asList("a", "b", "c", "d")));
+        MatcherAssert.assertThat(elements, IsIterableContainingInOrder.contains("a", "b", "c", "d"));
+
+        MatcherAssert.assertThat(elements, IsIterableContainingInAnyOrder.containsInAnyOrder(
+                "a", "b", "c", "d"));
 
     }
 
@@ -39,7 +36,49 @@ public class QuickstartSampleTest {
 
         Mono.just("foo")
                 .log()
-                .subscribe(System.out::println);
+                .subscribe(log::info);
+
+    }
+
+    @Test
+    public void testMap() {
+
+        List<String> elements = new ArrayList<>();
+
+        Flux.just("hello", ",", "project", "reactor", "!")
+                .map(String::toUpperCase)
+                .subscribe(elements::add);
+
+        MatcherAssert.assertThat(elements,
+                IsIterableContainingInOrder.contains("HELLO", ",", "PROJECT", "REACTOR", "!"));
+
+    }
+
+    @Test
+    public void testFlatMap() {
+
+        List<String> elements = new ArrayList<>();
+
+        Flux.just("hello", ",", "project", "reactor", "!")
+                .flatMap(elem -> Flux.just(elem.toUpperCase().split("")))
+                .subscribe(elements::add);
+
+        MatcherAssert.assertThat(elements,
+                IsIterableContainingInOrder.contains("H", "E", "L", "L", "O", ",",
+                        "P", "R", "O", "J", "E", "C", "T", "R", "E", "A", "C", "T", "O", "R", "!"));
+
+    }
+
+    @Test
+    public void testGenerate() {
+
+        List<Integer> elements = new ArrayList<>();
+
+        FibonacciGenerator.generateFibonacci(10)
+                .subscribe(elements::add);
+
+        MatcherAssert.assertThat(elements,
+                IsIterableContainingInOrder.contains(0, 1, 1, 2, 3, 5, 8));
 
     }
 
