@@ -5,23 +5,21 @@ import org.redisson.Redisson;
 import org.redisson.api.RAtomicLong;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
-import org.redisson.config.SingleServerConfig;
 
-import java.io.IOException;
 import java.util.concurrent.locks.Lock;
 
 @Slf4j
 public class RedissonSample {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         Config config = new Config();
         config.useSingleServer().setAddress("redis://127.0.0.1:6379");
         RedissonClient redisson = Redisson.create(config);
 
-        RAtomicLong myAtomicLong = redisson.getAtomicLong("myAtomicLong");
-        long longValue = myAtomicLong.addAndGet(10L);
-        log.info("longValue = {}", longValue);
+        RAtomicLong atomicLong = redisson.getAtomicLong("atomicLong");
+        long value = atomicLong.incrementAndGet();
+        log.info("value = {}", value);
 
         redisson.shutdown();
 
