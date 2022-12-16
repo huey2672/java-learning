@@ -26,13 +26,13 @@ public class RedissonSample {
     }
 
     public void sampleOfAtomicLong(RedissonClient redisson) {
-        RAtomicLong myAtomicLong = redisson.getAtomicLong("myAtomicLong");
-        long longValue = myAtomicLong.addAndGet(10L);
-        log.info("longValue = {}", longValue);
+        RAtomicLong atomicLong = redisson.getAtomicLong("atomicLong");
+        long value = atomicLong.addAndGet(10L);
+        log.info("value = {}", value);
     }
 
     public void sampleOfLock(RedissonClient redisson) {
-        Lock lock = redisson.getLock("myLock");
+        Lock lock = redisson.getLock("lock");
         lock.lock();
         try {
             // access the resource protected by this lock
