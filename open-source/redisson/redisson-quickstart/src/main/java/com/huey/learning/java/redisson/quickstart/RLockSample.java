@@ -6,8 +6,10 @@ import org.redisson.api.RAtomicLong;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
 
+import java.util.concurrent.locks.Lock;
+
 @Slf4j
-public class RedissonSample {
+public class RLockSample {
 
     public static void main(String[] args) {
 
@@ -15,9 +17,14 @@ public class RedissonSample {
         config.useSingleServer().setAddress("redis://127.0.0.1:6379");
         RedissonClient redisson = Redisson.create(config);
 
-        RAtomicLong atomicLong = redisson.getAtomicLong("atomicLong");
-        long value = atomicLong.incrementAndGet();
-        log.info("value = {}", value);
+        Lock lock = redisson.getLock("lock");
+        lock.lock();
+        try {
+            // access the resource protected by this lock
+        }
+        finally {
+            lock.unlock();
+        }
 
         redisson.shutdown();
 
