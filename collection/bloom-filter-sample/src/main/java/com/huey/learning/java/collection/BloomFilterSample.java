@@ -12,7 +12,8 @@ public class BloomFilterSample {
         // 期望的误判率
         double fpp = 0.01;
         // 创建布隆过滤器
-        BloomFilter<Integer> bloomFilter = BloomFilter.create(Funnels.integerFunnel(), expectedInsertions, fpp);
+        BloomFilter<Integer> bloomFilter = BloomFilter.create(Funnels.integerFunnel(),
+                expectedInsertions, fpp);
 
         int total = expectedInsertions;
         for (int i = 0; i < total; i++) {
