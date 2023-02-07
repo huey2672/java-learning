@@ -1,0 +1,9 @@
+elasticjob:
+  reg-center:
+    server-lists: 127.0.0.1:2181
+    namespace: my-job-ns
+  jobs:
+    my-job:
+      elastic-job-class: com.huey.learning.elasticjob.lite.MyJob
+      cron: 0/5 * * * * ?
+      sharding-total-count: 1
