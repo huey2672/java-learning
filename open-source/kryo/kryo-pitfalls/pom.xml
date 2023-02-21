@@ -15,7 +15,7 @@
         <kryo-serializers.version>0.30</kryo-serializers.version>
         <lombok.version>1.14.4</lombok.version>
         <junit.version>4.13.2</junit.version>
-        <spring.version>5.2.9.RELEASE</spring.version>
+        <spring.version>5.2.20.RELEASE</spring.version>
     </properties>
 
     <dependencies>
