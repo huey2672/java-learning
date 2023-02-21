@@ -1,0 +1,5 @@
+name: "法定结婚年龄规则"
+description: "如果到法定结婚年龄，则可以办理结婚登记"
+condition: "(sex == 'male' && age >= 22) || (sex == 'female' && age >= 20)"
+actions:
+  - "System.out.println(name + \"已到法定结婚年龄，可以办理结婚登记\");"
