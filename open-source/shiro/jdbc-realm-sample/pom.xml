@@ -11,7 +11,7 @@
     <properties>
         <shiro.version>1.4.0</shiro.version>
         <dbcp.version>1.4</dbcp.version>
-        <mysql-driver.version>8.0.20</mysql-driver.version>
+        <mysql-driver.version>8.0.28</mysql-driver.version>
         <logback.version>1.2.3</logback.version>
     </properties>
 
