@@ -6,8 +6,10 @@
 *.iml
 *.DS_Store
 
-/**/.jar
-/**/.class
+
+*.jar
+*.class
+
 
 /**/HELP.md
 /**/.mvn/
